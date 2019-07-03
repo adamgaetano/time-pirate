@@ -39,6 +39,16 @@ while running:
     screen.fill((0, 0, 0), topDisplayRect)
     screen.fill((0, 0, 0), bottomDisplayRect)
 
+    # Draw score
+    if pygame.font:
+        arcadeFont = pygame.font.Font("ARCADECLASSIC.ttf", 56)
+        text = arcadeFont.render("SCORE", False, (230, 230, 230))
+        scoreText = arcadeFont.render(str(score), False, (230, 230, 230))
+        textpos = text.get_rect(centerx=screen.get_width()/2)
+        scoreTextPos = scoreText.get_rect(centerx=screen.get_width()/2, centery=64)
+        screen.blit(text, textpos)
+        screen.blit(scoreText, scoreTextPos)
+
     # Update display
     pygame.display.flip()
 
